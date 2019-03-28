@@ -1,0 +1,32 @@
+{
+  "name": "vis-starter",
+  "version": "1.0.0",
+  "description": "Starter for D3 with budo",
+  "main": "index.js",
+  "scripts": {
+    "start": "budo index.js:bundle.js --live -- -t [ babelify --presets [ @babel/preset-env ] ]",
+    "build": "browserify demo.js | uglifyjs -cm > bundle.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jim Vallandingham",
+  "license": "MIT",
+  "dependencies": {
+    "d3": "^5.9.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.0",
+    "@babel/preset-env": "^7.4.2",
+    "babelify": "^10.0.0",
+    "browserify": "^16.2.3",
+    "budo": "^11.6.1",
+    "eslint": "^5.15.3",
+    "gh-pages": "^2.0.1",
+    "uglify-js": "^3.5.2"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}

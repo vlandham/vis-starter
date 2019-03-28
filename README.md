@@ -7,7 +7,7 @@ Start your D3 visualization quick and easy!
 Clone into a new directory
 
 ```bash
-git clone
+git clone git@github.com:vlandham/vis-starter.git my_cool_vis
 ```
 
 Install the dependencies:

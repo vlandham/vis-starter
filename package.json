@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "budo index.js:bundle.js --live -- -t [ babelify --presets [ @babel/preset-env ] ]",
-    "build": "browserify demo.js | uglifyjs -cm > bundle.js",
+    "build": "browserify -t [ babelify --presets [ @babel/preset-env ] ] index.js | uglifyjs -cm > bundle.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Jim Vallandingham",

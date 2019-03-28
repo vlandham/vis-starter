@@ -39,4 +39,4 @@ The idea is that you modify this code to make your new chart.
 - babelify - to use ES6
 - eslint - for linting
 - uglify-js - for packaging in deployment
-- gh-pages - to deploy to gh-pages!
+- gh-pages - to deploy to gh-pages! (not setup yet).

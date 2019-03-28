@@ -1,8 +1,6 @@
-<<<<<<< HEAD
 
-node_modules
+bundle.js
 
-=======
 # Logs
 logs
 *.log
@@ -64,4 +62,3 @@ typings/
 
 # next.js build output
 .next
->>>>>>> 8d2559038fe8e10272d2cb12f3101cb61ac12f3e

@@ -65,7 +65,7 @@ Data files are meant to go in `data/`.
 
 ## Development Packages
 
-- budo - for the server>
+- [budo](https://github.com/mattdesl/budo) - for the server>
 - browserify - for building.
 - babelify - to use ES6.
 - eslint - for linting.

@@ -6,6 +6,10 @@
   "scripts": {
     "start": "budo index.js:bundle.js --live -- -t [ babelify --presets [ @babel/preset-env ] ]",
     "build": "browserify -t [ babelify --presets [ @babel/preset-env ] ] index.js | uglifyjs -cm > bundle.js",
+    "prepackage": "npm run build",
+    "package": "rm -rf ./build && mkdir -p ./build && cp -r index.html bundle.js css data ./build",
+    "predeploy": "npm run package",
+    "deploy": "gh-pages -d build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Jim Vallandingham",

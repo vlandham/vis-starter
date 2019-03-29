@@ -1,5 +1,7 @@
 
 bundle.js
+build
+.DS_Store
 
 # Logs
 logs

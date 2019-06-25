@@ -108,7 +108,7 @@ class Display {
 
     for (let i = locations.length; i < this.pixels.length; i++) {
       const pixel = this.pixels[i];
-      pixel.target = { x: pixel.x, y: this._height + pixel.size };
+      pixel.target = { x: pixel.x, y: -1 * pixel.size };
       // const x = generateRandomInteger(0, this._width / this.pixels[i].size);
       // const y = this._height / this.pixels[i].size + this.pixels[i].size;
       // this.pixels[i].setTarget({ x: x, y: y });

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="630px" height="660px" viewBox="0 0 630 660" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="z" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle-path" fill="#000000" fill-rule="nonzero" transform="translate(320.000000, 112.500000) rotate(-360.000000) translate(-320.000000, -112.500000) " x="40" y="57" width="560" height="111"></rect>
+        <polygon id="Rectangle-path" fill="#000000" fill-rule="nonzero" transform="translate(320.000000, 337.048872) rotate(-472.613254) translate(-320.000000, -337.048872) " points="264.393862 57.0382031 375.571444 57.04509 375.606138 617.059541 264.428556 617.052654"></polygon>
+        <polygon id="Rectangle-path" fill="#000000" fill-rule="nonzero" transform="translate(320.000000, 559.500000) rotate(-360.000000) translate(-320.000000, -559.500000) " points="40 504 600 504 600 615 40 615"></polygon>
+    </g>
+</svg>

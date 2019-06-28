@@ -23,6 +23,8 @@ function processData(data) {
   return data;
 }
 
-d3.csv(dataPath)
-  .then(processData)
-  .then(data => buildChart(data, selector));
+// d3.csv(dataPath)
+//   .then(processData)
+//   .then(data => buildChart(data, selector));
+
+d3.xml('data/z.svg').then(svg => buildChart(svg, selector));

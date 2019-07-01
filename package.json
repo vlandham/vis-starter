@@ -15,7 +15,8 @@
   "author": "Jim Vallandingham",
   "license": "MIT",
   "dependencies": {
-    "d3": "^5.9.2"
+    "d3": "^5.9.2",
+    "zdog": "^1.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",

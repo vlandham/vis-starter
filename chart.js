@@ -5,6 +5,31 @@ function randomIntFromInterval(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
+function saveToFile(domElement, filename = 'out.png') {
+  var svgString = new XMLSerializer().serializeToString(document.getElementById(domElement));
+
+  console.log('save');
+  // console.log(svgString);
+
+  var canvas = document.getElementById('canvas');
+  var ctx = canvas.getContext('2d');
+  var DOMURL = self.URL || self.webkitURL || self;
+  var img = new Image();
+  var svg = new Blob([svgString], { type: 'image/svg+xml;charset=utf-8' });
+  var url = DOMURL.createObjectURL(svg);
+  img.onload = function() {
+    console.log('draw');
+    ctx.drawImage(img, 0, 0);
+    var png = canvas.toDataURL('image/png');
+    document.querySelector('#png-container').innerHTML = '<img src="' + png + '"/>';
+    DOMURL.revokeObjectURL(png);
+  };
+  img.onabort = () => {
+    console.log('abort');
+  };
+  img.src = url;
+}
+
 const randomCircles = (svg, width, height) => {
   const data = [];
   for (let i = 0; i < 200; i++) {
@@ -45,6 +70,7 @@ const shitNetwork = (svg, width, height) => {
     .attr('clip-path', 'url(#zclip)');
 
   const simulation = d3
+    .alphaMin(0.01)
     .forceSimulation(data)
     // .force('charge', d3.forceManyBody())
     .force('collision', d3.forceCollide().radius(d => d.r));
@@ -62,6 +88,7 @@ const shitNetwork = (svg, width, height) => {
   simulation.on('tick', () => {
     circle.attr('cx', d => d.x).attr('cy', d => d.y);
   });
+  simulation.on('end', () => console.log('done'));
 };
 
 const shitNetworkLinks = (svg, width, height) => {
@@ -84,15 +111,16 @@ const shitNetworkLinks = (svg, width, height) => {
   const linksG = svg
     .append('g')
     .attr('id', '#links')
-    .attr('clip-path', 'url(#zclip)');
+    .style('clip-path', 'url(#zclip)');
 
   const circles = svg
     .append('g')
     .attr('id', '#circles')
-    .attr('clip-path', 'url(#zclip)');
+    .style('clip-path', 'url(#zclip)');
 
   const simulation = d3
     .forceSimulation(data)
+    .alphaMin(0.01)
     .force('charge', d3.forceManyBody().strength(5))
     .force('center', d3.forceCenter(width / 2, height / 2))
     .force('collision', d3.forceCollide().radius(d => d.r * 2))
@@ -106,6 +134,7 @@ const shitNetworkLinks = (svg, width, height) => {
     .enter()
     .append('circle')
     .classed('circle', true)
+    .attr('fill', 'black')
     .attr('r', d => d.r)
     .attr('cx', d => d.x)
     .attr('cy', d => d.y);
@@ -127,6 +156,7 @@ const shitNetworkLinks = (svg, width, height) => {
       .attr('x2', d => d.target.x)
       .attr('y2', d => d.target.y);
   });
+  simulation.on('end', () => saveToFile('z'));
 };
 
 /**
@@ -175,8 +205,8 @@ function buildChart(zSvg, selector) {
       });
 
     // randomCircles(svg, width, height);
-    shitNetwork(svg, width, height);
-    // shitNetworkLinks(svg, width, height);
+    // shitNetwork(svg, width, height);
+    shitNetworkLinks(zG, width, height);
 
     // zG.selectAll('rect,polygon').attr('fill', 'red');
   };
